@@ -4,7 +4,7 @@
 
 ## Descrição
 <p align="justify">
-Bem-vindo ao repositório do **Full Stack Junior**. O atual repositório tem como objetivo apresentar a resolução de tarefas propostas e exercícios práticos do curso de formação em desenvolvimento Full Stack Junior. O curso é oferecido pela [+praTi](https://maisprati.com.br/) e [/codifica](https://www.codificaedu.com.br/) e tem como foco o desenvolvimento de habilidades práticas e teóricas em programação, com ênfase em tecnologias utilizadas no mercado de trabalho.
+Bem-vindo ao repositório do <strong>Full Stack Junior</strong>. O atual repositório tem como objetivo apresentar a resolução de tarefas propostas e exercícios práticos do curso de formação em desenvolvimento Full Stack Junior. O curso é oferecido pela <a href="https://maisprati.com.br/">+praTi</a> e <a href="https://www.codificaedu.com.br/">/codifica</a> e tem como foco o desenvolvimento de habilidades práticas e teóricas em programação, com ênfase em tecnologias utilizadas no mercado de trabalho.
 </p>
 
 ## Objetivo do Curso
