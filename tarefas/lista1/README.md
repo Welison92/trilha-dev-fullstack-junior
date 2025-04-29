@@ -6,10 +6,10 @@
 
 1. **Clone ou crie o projeto**:
 
-    - Clone o repositório ou crie um novo diretório para o projeto. Você pode usar o seguinte comando para clonar o repositório:
-        ```bash
-           git clone https://github.com/Welison92/trilha-dev-fullstack-junior.git
-        ```
+- Clone o repositório ou crie um novo diretório para o projeto. Você pode usar o seguinte comando para clonar o repositório:
+  ```bash
+  git clone https://github.com/Welison92/trilha-dev-fullstack-junior.git
+  ```
 
 2. **Instale as dependências**:
 
