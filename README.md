@@ -1,15 +1,13 @@
 # Trilha Dev. Full Stack Jr.
 
-
 <p align="center">
   <img src="imagens/capa.jpg" alt="Capa do Projeto">
 </p>
 
-
 ## 📝 Descrição
 
 <p align="justify">
-Bem-vindo ao repositório do <strong>Full Stack Junior</strong>. O atual repositório tem como objetivo apresentar a resolução de tarefas propostas e exercícios práticos do curso de formação em desenvolvimento Full Stack Junior. O curso é oferecido pela <a href="https://maisprati.com.br/">+praTi</a> e <a href="https://www.codificaedu.com.br/">/codifica</a> e tem como foco o desenvolvimento de habilidades práticas e teóricas em programação, com ênfase em tecnologias utilizadas no mercado de trabalho.
+Bem-vindo ao repositório do <strong>Full Stack Junior</strong>. O atual repositório tem como objetivo apresentar a resolução de tarefas propostas e exercícios práticos do curso de formação em desenvolvimento <strong>Full Stack Junior<strong>. O curso é oferecido pela <a href="https://maisprati.com.br/">+praTi</a> e <a href="https://www.codificaedu.com.br/">/codifica</a> e tem como foco o desenvolvimento de habilidades práticas e teóricas em programação, com ênfase em tecnologias utilizadas no mercado de trabalho.
 </p>
 
 ## 🎓 Objetivo do Curso
