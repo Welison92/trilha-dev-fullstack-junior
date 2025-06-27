@@ -585,3 +585,57 @@ form button:focus {
         font-size: 0.95rem;
     }
 }
+
+/* Redes Sociais */
+.redes-info {
+    display: flex;
+    flex-direction: grid; /* Alinhamento vertical */
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.redes-item {
+    background: var(--fundo-nav);
+    color: #111; /* Cor do ícone SVG */
+    border-radius: 8px;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Tamanho do quadrado para ícone de celular */
+    height: 48px;
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.redes-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(255, 140, 0, 0.4);
+}
+
+.redes-item .icon svg {
+    width: 24px; /* Tamanho do ícone */
+    height: 24px;
+}
+
+.redes-item a {
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .redes-info {
+        gap: 0.8rem;
+    }
+
+    .redes-item {
+        width: 40px; /* Tamanho um pouco menor para dispositivos móveis */
+        height: 40px;
+        padding: 0.6rem;
+    }
+
+    .redes-item .icon svg {
+        width: 20px; /* Tamanho do ícone para telas menores */
+        height: 20px;
+    }
+}
