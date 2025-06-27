@@ -237,6 +237,50 @@ main {
     max-width: 1300px;
 }
 
+/* Estilização da lista de projetos */
+.projetos-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.projetos-lista li {
+    background: var(--fundo-nav);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.projetos-lista li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.4);
+}
+
+.projetos-lista a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    display: block; /* Faz o link ocupar todo o espaço do li */
+}
+
+.projetos-lista a:hover h3,
+.projetos-lista a:focus h3 {
+    color: var(--hover);
+}
+
+.projetos-lista h3 {
+    color: var(--destaque);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.projetos-lista p {
+    color: var(--texto-claro);
+    font-size: 1rem;
+}
+
 section {
     background: var(--fundo-nav);
     padding: 2rem;
@@ -458,4 +502,16 @@ form button:focus {
 .card-habilidade .icon svg {
     width: 40px;
     height: 40px;
+}
+
+.texto-justificado {
+    text-align: justify;
+    hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .texto-justificado {
+        text-align: justify;
+        hyphens: auto;
+    }
 }
