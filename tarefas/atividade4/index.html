@@ -686,15 +686,10 @@
             const icon = document.getElementById("menu-icon");
 
             toggle.addEventListener("click", () => {
-                const isActive = menu.classList.toggle("active");
-                icon.innerHTML = isActive ? "&times;" : "&#9776;";
-            });
-
-            document.querySelectorAll("#menu a").forEach((link) => {
-                link.addEventListener("click", () => {
-                    menu.classList.remove("active");
-                    icon.innerHTML = "&#9776;";
-                });
+                menu.classList.toggle("active");
+                icon.textContent = menu.classList.contains("active")
+                    ? "✖"
+                    : "☰";
             });
         </script>
     </body>
