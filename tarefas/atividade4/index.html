@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="color-schema" content="dark" />
         <title>Meu Perfil | Desenvolvedor Fullstack</title>
         <link rel="stylesheet" href="styles.css" />
         <link
@@ -686,10 +685,15 @@
             const icon = document.getElementById("menu-icon");
 
             toggle.addEventListener("click", () => {
-                menu.classList.toggle("active");
-                icon.textContent = menu.classList.contains("active")
-                    ? "✖"
-                    : "☰";
+                const isActive = menu.classList.toggle("active");
+                icon.innerHTML = isActive ? "&times;" : "&#9776;";
+            });
+
+            document.querySelectorAll("#menu a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    menu.classList.remove("active");
+                    icon.innerHTML = "&#9776;";
+                });
             });
         </script>
     </body>
