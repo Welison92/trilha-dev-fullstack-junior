@@ -3,17 +3,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: inherit; /* Evita cores padrão do navegador */
 }
 
 /* Variáveis */
 :root {
-    --fundo-escuro: #000000;
-    --fundo-nav: #111111;
-    --toggle-menu: #1a1a1a;
-    --destaque: #ffa500;
-    --hover: #ff8c00;
-    --texto-claro: #ffa500;
+    --fundo-escuro: #000000; /* fundo geral preto */
+    --fundo-nav: #111111; /* blocos e nav um preto mais claro */
+    --toggle-menu: #1a1a1a; /* menu mobile um tom diferente */
+    --destaque: #ffa500; /* laranja forte */
+    --hover: #ff8c00; /* laranja escuro para hover */
+    --texto-claro: #ffa500; /* texto em laranja */
     --fonte-principal: "Inter", sans-serif;
 }
 
@@ -38,6 +37,12 @@ header {
     border: 3px solid var(--destaque);
     box-shadow: 0 0 12px var(--destaque);
 }
+/*.slogan {
+  color: var(--destaque);
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}*/
 
 /* Slogan */
 .slogan {
@@ -45,27 +50,33 @@ header {
     font-style: italic;
     margin-top: 0.5rem;
     font-weight: 500;
-    position: relative;
-    display: inline-block;
-    padding: 0.5rem 0;
+    position: relative; /* Necessário para posicionar os pseudo-elementos */
+    display: inline-block; /* Garante que os traços sigam a largura do texto */
+    padding: 0.5rem 0; /* Espaçamento interno para os traços */
 }
+
+/* Traço superior */
 .slogan::before {
     content: "";
     position: absolute;
-    top: -3px;
+    top: -3px; /* Ajuste a distância do traço acima */
     left: 0%;
-    width: 100px;
-    height: 5px;
-    background: var(--destaque);
+    transform: translateX(-0%); /* Centraliza o traço */
+    width: 100px; /* Tamanho do traço superior */
+    height: 5px; /* Espessura do traço */
+    background: var(--destaque); /* Cor laranja */
 }
+
+/* Traço inferior */
 .slogan::after {
     content: "";
     position: absolute;
-    bottom: -3px;
+    bottom: -3px; /* Ajuste a distância do traço abaixo */
     left: 64%;
-    width: 100px;
-    height: 5px;
-    background: var(--destaque);
+    transform: translateX(-0%); /* Centraliza o traço */
+    width: 100px; /* Tamanho do traço inferior (menor que o superior) */
+    height: 5px; /* Espessura do traço */
+    background: var(--destaque); /* Cor laranja */
 }
 
 /* Navegação */
@@ -79,6 +90,7 @@ nav {
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -86,38 +98,41 @@ nav {
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background: var(--fundo-nav);
 }
+
 .logo-nav {
-    width: 60px;
+    width: 60px; /* Tamanho padrão da logo */
     height: 60px;
-    object-fit: contain;
-    margin-left: -20px;
+    object-fit: contain; /* Mantém a proporção da logo */
+    position: relative;
+    left: -40px; /* Ajuste para trazer a logo mais para o lado esquerdo */
 }
+
+/* Ajuste para evitar sobreposição */
 header {
-    margin-top: 80px;
+    margin-top: 100px; /* Ajustado conforme a altura da barra de navegação */
 }
+
 .menu-toggle {
     font-size: 2.2rem;
-    color: var(--texto-claro) !important;
+    color: var(--texto-claro);
     cursor: pointer;
     display: none;
     user-select: none;
     z-index: 1000;
     transition: color 0.3s ease;
 }
-.menu-toggle #menu-icon {
-    color: var(--texto-claro) !important;
+
+.menu-toggle:hover {
+    color: var(--hover);
 }
-.menu-toggle:hover,
-.menu-toggle:hover #menu-icon {
-    color: var(--hover) !important;
-}
+
 nav ul {
     display: flex;
     gap: 2.5rem;
     list-style: none;
 }
+
 nav a {
     color: var(--texto-claro);
     text-decoration: none;
@@ -127,6 +142,7 @@ nav a {
     padding: 0.25rem 0;
     border-bottom: 2px solid transparent;
 }
+
 nav a:hover,
 nav a:focus {
     color: var(--hover);
@@ -137,47 +153,58 @@ nav a:focus {
 /* Menu Mobile */
 @media (max-width: 768px) {
     .logo-nav {
-        width: 50px;
-        height: 50px;
-        margin-left: 10px;
+        width: 60px; /* Tamanho menor para dispositivos móveis */
+        height: 60px;
+        position: absolute;
+        left: 20px;
     }
+
     nav {
-        background: var(--fundo-nav);
-        position: fixed;
+        background: var(--fundo-nav); /* Mantém o fundo escuro */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* Mantém a sombra */
+        position: fixed; /* Garante que a barra fique fixa no topo */
         top: 0;
         left: 0;
         right: 0;
         width: 100%;
-        height: 60px;
+        height: 60px; /* Define uma altura fixa para a barra de navegação */
         z-index: 1000;
     }
+
     .nav-container {
-        padding: 1rem;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--fundo-nav);
+        position: relative;
+        padding: 1rem 2rem; /* Mantém o padding original */
+        justify-content: space-between; /* Alinha logo à esquerda e toggle à direita */
+        background: var(
+            --fundo-nav
+        ); /* Garante que o container tenha o fundo escuro */
+        height: 100%; /* O container ocupa toda a altura do nav */
+        display: flex;
+        align-items: center; /* Centraliza verticalmente os elementos */
     }
+
     .menu-toggle {
         display: block;
-        font-size: 2rem;
-        color: var(--texto-claro) !important;
-        background: transparent;
-        padding: 0.5rem;
-        border-radius: 0;
+        font-size: 2.2rem;
+        color: var(--texto-claro);
+        cursor: pointer;
+        user-select: none;
+        background: none; /* Remove o fundo */
+        padding: 0.5rem 1rem;
+        border-radius: 0; /* Remove bordas arredondadas */
+        box-shadow: none; /* Remove a sombra */
     }
-    .menu-toggle #menu-icon {
-        color: var(--texto-claro) !important;
+
+    .menu-toggle:hover {
+        color: var(--hover);
     }
-    .menu-toggle:hover,
-    .menu-toggle:hover #menu-icon {
-        color: var(--hover) !important;
-    }
+
     nav ul {
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Posiciona o menu logo abaixo da barra */
         right: 0;
-        background: var(--toggle-menu);
+        background: var(--toggle-menu); /* Fundo do menu dropdown */
         width: 100%;
         max-width: 320px;
         display: none;
@@ -186,12 +213,15 @@ nav a:focus {
         border-radius: 0 0 0 12px;
         z-index: 999;
     }
+
     nav ul.active {
         display: flex;
     }
+
     nav ul li {
         margin: 0.7rem 0;
     }
+
     nav a {
         font-size: 1.2rem;
         padding: 0.5rem 0;
@@ -207,7 +237,7 @@ main {
     max-width: 1300px;
 }
 
-/* Projetos */
+/* Estilização da lista de projetos */
 .projetos-lista {
     list-style: none;
     display: flex;
@@ -215,6 +245,7 @@ main {
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
+
 .projetos-lista li {
     background: var(--fundo-nav);
     padding: 1rem;
@@ -222,30 +253,34 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 .projetos-lista li:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 12px rgba(255, 140, 0, 0.4);
 }
+
 .projetos-lista a {
     color: var(--texto-claro);
     text-decoration: none;
-    display: block;
+    display: block; /* Faz o link ocupar todo o espaço do li */
 }
+
 .projetos-lista a:hover h3,
 .projetos-lista a:focus h3 {
     color: var(--hover);
 }
+
 .projetos-lista h3 {
     color: var(--destaque);
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
+
 .projetos-lista p {
     color: var(--texto-claro);
     font-size: 1rem;
 }
 
-/* Seções */
 section {
     background: var(--fundo-nav);
     padding: 2rem;
@@ -263,6 +298,11 @@ section h2 {
     border-bottom: 2px solid var(--destaque);
     padding-bottom: 0.5rem;
 }
+section::before {
+    /*content: "★ ";*/
+    color: var(--hover);
+    font-weight: 700;
+}
 
 /* Aside */
 aside {
@@ -271,12 +311,10 @@ aside {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-aside h2 {
+aside h3 {
     color: var(--destaque);
     margin-bottom: 1rem;
     font-weight: 700;
-    border-bottom: 2px solid var(--destaque);
-    padding-bottom: 0.5rem;
 }
 aside a {
     color: var(--destaque);
@@ -291,6 +329,14 @@ aside a:focus {
     color: var(--hover);
     text-decoration: underline;
     outline: none;
+}
+
+aside h2 {
+    color: var(--destaque);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--destaque);
+    padding-bottom: 0.5rem;
 }
 
 /* Footer */
@@ -312,7 +358,7 @@ form {
 form label {
     margin-bottom: 0.3rem;
     font-weight: 600;
-    color: var(--destaque) !important; /* Corrige a cor do label */
+    color: var(--destaque);
 }
 form input,
 form textarea,
@@ -351,18 +397,88 @@ form button:focus {
     box-shadow: 0 6px 12px var(--hover);
 }
 
-/* Habilidades */
+/* Responsivo */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        /* background: transparent; */
+        box-shadow: none;
+    }
+
+    .nav-container {
+        position: relative;
+        padding: 0;
+        justify-content: flex-end;
+    }
+
+    .menu-wrapper {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 2.2rem;
+        color: var(--texto-claro);
+        cursor: pointer;
+        user-select: none;
+        /* background: var(--fundo-nav); */
+        background: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); */
+        box-shadow: none;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--toggle-menu);
+        width: 100%;
+        max-width: 320px;
+        display: none;
+        padding: 1.5rem 2rem;
+        box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 0 12px;
+        z-index: 999;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.7rem 0;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+        padding: 0.5rem 0;
+    }
+}
+
 .habilidades-grid {
     display: grid;
+    /*grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));*/
     grid-template-columns: repeat(7, minmax(100px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
+
+/* Responsivo com auto-fit */
 @media (max-width: 920px) {
     .habilidades-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
+
 .card-habilidade {
     background: var(--destaque);
     color: #111;
@@ -377,17 +493,27 @@ form button:focus {
     transition: transform 0.2s ease, box-shadow 0.3s ease;
     text-align: center;
 }
+
 .card-habilidade:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 14px rgba(255, 140, 0, 0.4);
 }
+
 .card-habilidade .icon svg {
     width: 40px;
     height: 40px;
 }
+
 .texto-justificado {
     text-align: justify;
     hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .texto-justificado {
+        text-align: justify;
+        hyphens: auto;
+    }
 }
 
 /* Contato */
@@ -397,6 +523,7 @@ form button:focus {
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
+
 .contato-item {
     display: flex;
     align-items: center;
@@ -407,65 +534,39 @@ form button:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 .contato-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 12px rgba(255, 140, 0, 0.4);
 }
+
 .contato-item .icon svg {
     width: 24px;
     height: 24px;
 }
+
 .contato-item p {
     color: var(--texto-claro);
     font-size: 1rem;
     margin: 0;
 }
+
 .contato-item a {
     color: var(--destaque);
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 .contato-item a:hover,
 .contato-item a:focus {
     color: var(--hover);
     text-decoration: underline;
     outline: none;
 }
+
 .contato-item strong {
     color: var(--destaque);
     font-weight: 600;
-}
-
-/* Redes Sociais */
-.redes-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-.redes-item {
-    background: var(--fundo-nav);
-    color: #111;
-    border-radius: 8px;
-    padding: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 48px;
-    height: 48px;
-    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-.redes-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 14px rgba(255, 140, 0, 0.4);
-}
-.redes-item .icon svg {
-    width: 24px;
-    height: 24px;
-}
-.redes-item a {
-    text-decoration: none;
 }
 
 /* Responsivo */
@@ -473,24 +574,68 @@ form button:focus {
     .contato-info {
         gap: 1rem;
     }
+
     .contato-item {
         flex-direction: row;
         align-items: flex-start;
         padding: 0.8rem;
     }
+
     .contato-item p {
         font-size: 0.95rem;
     }
+}
+
+/* Redes Sociais */
+.redes-info {
+    display: flex;
+    flex-direction: grid; /* Alinhamento vertical */
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.redes-item {
+    background: var(--fundo-nav);
+    color: #111; /* Cor do ícone SVG */
+    border-radius: 8px;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Tamanho do quadrado para ícone de celular */
+    height: 48px;
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.redes-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(255, 140, 0, 0.4);
+}
+
+.redes-item .icon svg {
+    width: 24px; /* Tamanho do ícone */
+    height: 24px;
+}
+
+.redes-item a {
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
     .redes-info {
         gap: 0.8rem;
     }
+
     .redes-item {
-        width: 40px;
+        width: 40px; /* Tamanho um pouco menor para dispositivos móveis */
         height: 40px;
         padding: 0.6rem;
     }
+
     .redes-item .icon svg {
-        width: 20px;
+        width: 20px; /* Tamanho do ícone para telas menores */
         height: 20px;
     }
 }
