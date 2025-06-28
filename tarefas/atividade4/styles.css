@@ -124,6 +124,10 @@ header {
     transition: color 0.3s ease;
 }
 
+.menu-toggle span {
+    color: var(--texto-claro);
+    fill: currentColor;
+}
 
 .menu-toggle:hover {
     color: var(--hover);
