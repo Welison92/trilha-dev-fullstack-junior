@@ -1,0 +1,193 @@
+<!-- 6. Exercício Grid e Flexbox - Monte uma galeria com oito imagens e legendas,
+organizadas por Grid. Além disso, envolva toda a galeria em um contêiner que
+utilize Flexbox para centralizar o conjunto na página e permitir que as figuras
+quebrem de linha quando a largura for limitada. Ajuste o número de colunas do
+Grid para telas menores por meio de media query. 
+
+
+7. Menu Hamburger - implemente um menu “hamburger” que:
+- Apareça apenas em telas com largura ≤ 600 px.
+- Oculte a navegação padrão e abra/feche o menu ao ser clicado.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Galeria de Imagens</title>
+        <link rel="stylesheet" href="styles.css" />
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+            }
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 10px;
+            }
+            .gallery figure {
+                margin: 0;
+                text-align: center;
+            }
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+            .hamburger {
+                display: none;
+                font-size: 24px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
+            .hamburger::before {
+                content: "☰";
+            }
+            .hamburger.active::before {
+                content: "✕";
+            }
+            .nav-menu {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                padding: 10px;
+                background-color: #f8f8f8;
+            }
+            .nav-menu a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            @media (max-width: 600px) {
+                .container {
+                    margin-top: 40px;
+                }
+                .hamburger {
+                    display: block;
+                    background-color: rgb(161, 238, 130);
+                    border-radius: 8px;
+                }
+                .nav-menu {
+                    display: none;
+                    flex-direction: column;
+                    position: fixed;
+                    top: 60px;
+                    right: 0;
+                    background-color: #f7f3f3;
+                    width: 200px;
+                    padding: 20px;
+                    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+                }
+                .nav-menu.active {
+                    display: flex;
+                }
+                .gallery {
+                    grid-template-columns: repeat(
+                        auto-fill,
+                        minmax(150px, 1fr)
+                    );
+                }
+            }
+            @media (max-width: 400px) {
+                .gallery {
+                    grid-template-columns: repeat(
+                        auto-fill,
+                        minmax(100px, 1fr)
+                    );
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <button class="hamburger" aria-label="Toggle menu"></button>
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">Sobre</a>
+            <a href="#contact">Contato</a>
+        </nav>
+        <div class="container">
+            <div class="gallery">
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2020/06/30/22/34/dog-5357794_1280.jpg"
+                        alt="Imagem 1"
+                    />
+                    <figcaption>Legenda da Imagem 1</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2022/05/20/13/29/dogs-7209506_960_720.jpg"
+                        alt="Imagem 2"
+                    />
+                    <figcaption>Legenda da Imagem 2</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2021/07/24/07/25/chow-chow-6488849_1280.jpg"
+                        alt="Imagem 3"
+                    />
+                    <figcaption>Legenda da Imagem 3</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2015/05/30/19/53/playing-puppies-790638_1280.jpg"
+                        alt="Imagem 4"
+                    />
+                    <figcaption>Legenda da Imagem 4</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2017/04/08/16/07/fun-2213606_1280.jpg"
+                        alt="Imagem 5"
+                    />
+                    <figcaption>Legenda da Imagem 5</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2017/04/11/21/00/dogs-2222801_1280.jpg"
+                        alt="Imagem 6"
+                    />
+                    <figcaption>Legenda da Imagem 6</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2017/06/08/22/43/animals-2385161_1280.jpg"
+                        alt="Imagem 7"
+                    />
+                    <figcaption>Legenda da Imagem 7</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2019/05/21/21/13/dogs-4220163_1280.jpg"
+                        alt="Imagem 8"
+                    />
+                    <figcaption>Legenda da Imagem 8</figcaption>
+                </figure>
+            </div>
+        </div>
+        <script>
+            document
+                .querySelector(".hamburger")
+                .addEventListener("click", () => {
+                    const hamburger = document.querySelector(".hamburger");
+                    const navMenu = document.querySelector(".nav-menu");
+                    hamburger.classList.toggle("active");
+                    navMenu.classList.toggle("active");
+                });
+        </script>
+    </body>
+</html>

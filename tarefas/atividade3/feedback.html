@@ -1,0 +1,90 @@
+<!-- 3. Formulário de Feedback - Em arquivo feedback.html, construa um formulário
+que contenha:
+- Nome
+- E-mail
+- Endereço Completo
+- Tipo de feedback
+- Campo para o Feedback
+- Botão de Envio -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formulário de Feedback</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            form {
+                max-width: 600px;
+                margin: auto;
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box; /* Adicionado para consistência no dimensionamento */
+            }
+            select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc; /* Adicionado para consistência com outros inputs */
+                border-radius: 4px; /* Adicionado para consistência com outros inputs */
+            }
+            button {
+                padding: 10px 15px;
+                background-color: #28a745;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Formulário de Feedback</h1>
+        <form action="#" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required />
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="endereco">Endereço Completo:</label>
+            <input type="text" id="endereco" name="endereco" required />
+
+            <label for="tipo-feedback">Tipo de Feedback:</label>
+            <select id="tipo-feedback" name="tipo-feedback" required>
+                <option value="">Selecione</option>
+                <option value="positivo">Positivo</option>
+                <option value="negativo">Negativo</option>
+                <option value="sugestao">Sugestão</option>
+            </select>
+
+            <label for="feedback">Feedback:</label>
+            <textarea
+                id="feedback"
+                name="feedback"
+                rows="4"
+                required
+            ></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

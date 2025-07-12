@@ -1,0 +1,49 @@
+<!-- 1. Crie um arquivo chamado index.html e monte nele a seguinte estrutura usando
+sempre tags semânticas:
+- Um <header> contendo um <h1> (título) e um <p> (parágrafo) introdutório.
+- Um <main> dividido em duas subseções:
+- Seção “Missão” com <h2> e <p>.
+- Seção “Visão” com <h2> e <p>.
+- Um <footer> com um <p> de copyright. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atividade 3 - Estrutura Semântica</title>
+        <link rel="stylesheet" href="styless.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Bem-vindo à Nossa Organização</h1>
+            <p>
+                Este é um espaço dedicado a compartilhar nossa missão e visão
+                com todos.
+            </p>
+        </header>
+
+        <main>
+            <section id="missao">
+                <h2>Missão</h2>
+                <p class="destaque">
+                    Nossa missão é proporcionar soluções inovadoras que melhorem
+                    a vida das pessoas e contribuam para um futuro sustentável.
+                </p>
+            </section>
+
+            <section id="visao">
+                <h2>Visão</h2>
+                <p id="importante">
+                    Buscamos ser reconhecidos como líderes em nosso setor,
+                    sempre comprometidos com a qualidade e a responsabilidade
+                    social.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Nossa Organização. Todos os direitos reservados.</p>
+        </footer>
+    </body>
+</html>
